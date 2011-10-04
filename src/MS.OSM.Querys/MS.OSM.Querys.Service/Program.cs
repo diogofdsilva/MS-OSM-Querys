@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.ServiceModel;
 
-namespace SIAT.OSM.Service
+namespace MS.OSM.Querys.Service
 {
     class Program
     {

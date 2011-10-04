@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
 using System.Configuration;
 using System.Threading;
-using MS.OSM.Querys;
 using MS.OSM.Querys.DAL;
 using MS.OSM.Querys.DTO;
 
-namespace SIAT.OSM.Service
+namespace MS.OSM.Querys.Service
 {
     [ServiceBehavior(ConcurrencyMode=ConcurrencyMode.Multiple, InstanceContextMode=InstanceContextMode.Single)]
     class OSMService : IOSMService
