@@ -1,0 +1,97 @@
+﻿<Window x:Class="MS.OSM.Querys.OSM2DB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="OSM to DB" Height="500" Width="525" Icon="/MS.OSM.Querys.OSM2DB;component/Images/siatIcon.png">
+   
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="100*" />
+            <RowDefinition Height="180*" />
+            <RowDefinition Height="60*" />
+            <RowDefinition Height="34*" />
+        </Grid.RowDefinitions>
+
+        <!--GRID Row 0-->
+        
+        <Label Content="File path:" Height="28" HorizontalAlignment="Left" Margin="12,0,0,0" Name="label1" VerticalAlignment="Top" />
+        <TextBox Height="23" Margin="12,26,12,0" Name="textBoxPath" VerticalAlignment="Top" Text="C:\ISEL\PFM\OSM-Extracts\map.osm" />
+
+        <!--GRID Row 1-->
+
+        <Label Grid.Row="1" Content="Query string:" Height="28" HorizontalAlignment="Left" Margin="12,0,0,0" VerticalAlignment="Top" />
+        <TextBox Grid.Row="1" Height="23" Margin="12,26,12,0" Name="queryString" VerticalAlignment="Top" Text="{Binding QueryString, Mode=TwoWay}" />
+
+        <!--GRID Row 2-->
+        
+        <Grid Grid.Row="2">
+            <ProgressBar Height="40" Margin="12,54,12,0" Name="progressBar" VerticalAlignment="Top" Value="{Binding WaysLeft}" Maximum="{Binding MaxWaysLeft}" />
+            <Label Content="Progress:" Height="28" Margin="12,20,0,0" Name="label2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70" />
+            <Label Height="28" HorizontalAlignment="Left" Margin="88,20,0,0" Name="labelWaysLeft" VerticalAlignment="Top" Content="{Binding WaysLeft}" />
+            <Label Height="28" HorizontalAlignment="Left" Margin="375,20,0,0" Name="labelTotalWaysLeft" VerticalAlignment="Top" Content="{Binding MaxWaysLeft}" />
+            <Label Content="/" Height="28" Margin="249,20,239,0" Name="label3" VerticalAlignment="Top" />
+        </Grid>
+
+        <!--GRID Row 3-->
+        
+        <Grid Grid.Row="3" Margin="30,0,30,0" Name="FiltersGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label FontSize="22" Margin="10,0,0,0">Highway filters:</Label>
+
+            <StackPanel Name="SelectedItemsList" Margin="10" Grid.Column="0" Grid.Row="1">
+                <CheckBox Tag="s" Unchecked="CheckBox_UnChecked" IsChecked="True" Checked="CheckBox_Checked">motorway</CheckBox>
+                <CheckBox Unchecked="CheckBox_UnChecked" IsChecked="True" Checked="CheckBox_Checked">motorway_link</CheckBox>
+                <CheckBox Unchecked="CheckBox_UnChecked" IsChecked="True" Checked="CheckBox_Checked">trunk</CheckBox>
+                <CheckBox Unchecked="CheckBox_UnChecked" IsChecked="True" Checked="CheckBox_Checked" Content="trunk_link"/>
+                <CheckBox Unchecked="CheckBox_UnChecked" IsChecked="True" Checked="CheckBox_Checked">primary</CheckBox>
+                <CheckBox Unchecked="CheckBox_UnChecked" IsChecked="True" Checked="CheckBox_Checked">secondary</CheckBox>
+                <CheckBox Unchecked="CheckBox_UnChecked" IsChecked="True" Checked="CheckBox_Checked">tertiary</CheckBox>
+            </StackPanel>
+
+            <StackPanel Margin="10" Grid.Column="1" Grid.Row="1">
+                <CheckBox Unchecked="CheckBox_UnChecked" Checked="CheckBox_Checked">residential</CheckBox>
+                <CheckBox Unchecked="CheckBox_UnChecked" Checked="CheckBox_Checked">service</CheckBox>
+                <CheckBox Unchecked="CheckBox_UnChecked" Checked="CheckBox_Checked">pedestrian</CheckBox>
+                <CheckBox Unchecked="CheckBox_UnChecked" Checked="CheckBox_Checked">cicleway</CheckBox>
+                <CheckBox Unchecked="CheckBox_UnChecked" Checked="CheckBox_Checked">unclassified</CheckBox>
+                <CheckBox Unchecked="CheckBox_UnChecked" Checked="CheckBox_Checked">track</CheckBox>
+                <CheckBox Unchecked="CheckBox_UnChecked" Checked="CheckBox_Checked">OTHERS</CheckBox>
+            </StackPanel>
+
+        </Grid>
+        
+        
+        
+
+        <!--GRID Row 4-->
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Stretch" ClipToBounds="True" >
+            <Button Content="Load from File" Margin="8" Name="buttonLoad" Click="ButtonLoadClick" />
+            <Label VerticalAlignment="Center" FontSize="22">></Label>
+            <Button Name="DBLoadButton" Margin="8" IsEnabled="False" Content="Load to DB" HorizontalAlignment="Center" Click="DBLoadButtonClick" />
+
+            <Button Content="Clear" Margin="8" Name="buttonClear" Click="ButtonClearClick" Width="47" />
+        </StackPanel>
+
+        <!--GRID Row 5-->
+
+        <StatusBar Grid.Row="5"  HorizontalAlignment="Stretch"  Name="statusBar1" VerticalAlignment="Stretch" >
+            <StatusBarItem Name="StatusItem">
+                Ready
+            </StatusBarItem>
+
+            <StatusBarItem Name="TimeItem" Content="{Binding Path=Elapsed, StringFormat=\\hh\\:mm\\:ss}" IsEnabled="False">
+               
+            </StatusBarItem>
+        </StatusBar>
+        
+    </Grid>
+</Window>
