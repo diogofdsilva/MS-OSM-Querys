@@ -15,6 +15,7 @@ The documentation of this project is available on the ([wiki](https://github.com
 ##Installation
 
 You must have the following requisites:
+
 * Microsoft SQL Server Database that supports Spatial querys (after SQL Server 2008 R2);
 * Download OSM file containing the extract of the map ([link](http://download.geofabrik.de/osm/)).
 
