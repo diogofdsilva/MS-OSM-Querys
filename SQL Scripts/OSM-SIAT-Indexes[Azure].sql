@@ -1,0 +1,34 @@
+
+-- create clustered index on Node(wayId)
+
+GO
+CREATE NONCLUSTERED INDEX [NodeWayIdIndex] ON [dbo].[Node] 
+(
+	[wayId] ASC
+)WITH (STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF )
+GO
+
+-- create index on Node(geo)
+
+GO
+CREATE SPATIAL INDEX [NodeGeoIndex] ON [dbo].[Node] 
+(
+	[geo]
+)USING  GEOGRAPHY_GRID 
+WITH (
+GRIDS =(LEVEL_1 = HIGH,LEVEL_2 = MEDIUM,LEVEL_3 = MEDIUM,LEVEL_4 = MEDIUM), 
+CELLS_PER_OBJECT = 16 , DROP_EXISTING = OFF)
+GO
+
+-- create index on Way(geo)
+
+
+GO
+CREATE SPATIAL INDEX [WayGeoIndex] ON [dbo].[Way] 
+(
+	[geo]
+)USING  GEOGRAPHY_GRID 
+WITH (
+GRIDS =(LEVEL_1 = MEDIUM,LEVEL_2 = MEDIUM,LEVEL_3 = MEDIUM,LEVEL_4 = MEDIUM), 
+CELLS_PER_OBJECT = 16, DROP_EXISTING = OFF)
+GO
