@@ -110,6 +110,7 @@ namespace MS.OSM.Querys.OSM2DB.OSMFileReader
         private void ReadWay()
         {
             Way way = new Way();
+            way.Nodes = new List<Node>();
 
             way.Id = Convert.ToInt64(_reader.GetAttribute("id"));
 
