@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS.OSM.Querys.OSM2DB", "MS.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS.OSM.Querys.Service", "MS.OSM.Querys.Service\MS.OSM.Querys.Service.csproj", "{3638626D-DA66-4477-95D0-BBE655752489}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS.OSM.Querys.IISService", "MS.OSM.Querys.IISService\MS.OSM.Querys.IISService.csproj", "{FB54DF3B-B5D0-4992-8B1C-D83AAE5E97E2}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = MS.OSM.Querys.vsmdi
@@ -81,6 +83,16 @@ Global
 		{3638626D-DA66-4477-95D0-BBE655752489}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3638626D-DA66-4477-95D0-BBE655752489}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3638626D-DA66-4477-95D0-BBE655752489}.Release|x86.ActiveCfg = Release|Any CPU
+		{FB54DF3B-B5D0-4992-8B1C-D83AAE5E97E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB54DF3B-B5D0-4992-8B1C-D83AAE5E97E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB54DF3B-B5D0-4992-8B1C-D83AAE5E97E2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FB54DF3B-B5D0-4992-8B1C-D83AAE5E97E2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FB54DF3B-B5D0-4992-8B1C-D83AAE5E97E2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FB54DF3B-B5D0-4992-8B1C-D83AAE5E97E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB54DF3B-B5D0-4992-8B1C-D83AAE5E97E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB54DF3B-B5D0-4992-8B1C-D83AAE5E97E2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FB54DF3B-B5D0-4992-8B1C-D83AAE5E97E2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FB54DF3B-B5D0-4992-8B1C-D83AAE5E97E2}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

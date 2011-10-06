@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Node" EntityType="Model.Store.Node" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Way" EntityType="Model.Store.Way" store:Type="Tables" Schema="dbo" />
@@ -68,27 +68,26 @@
           <Parameter Name="lon" Type="float" Mode="In" />
           <Parameter Name="idWay" Type="bigint" Mode="In" />
         </Function>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="OSMModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="OSMEntities" annotation:LazyLoadingEnabled="true" a:TypeAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
-          <EntitySet Name="Nodes" EntityType="OSMModel.Node" />
-          <EntitySet Name="Ways" EntityType="OSMModel.Way" />
-          <AssociationSet Name="fk_WayNode" Association="OSMModel.fk_WayNode">
+      <Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="OSMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Nodes" EntityType="Model.Node" />
+          <EntitySet Name="Ways" EntityType="Model.Way" />
+          <AssociationSet Name="fk_WayNode" Association="Model.fk_WayNode">
             <End Role="Way" EntitySet="Ways" />
             <End Role="Node" EntitySet="Nodes" />
           </AssociationSet>
-          <FunctionImport Name="GetClosestNode" EntitySet="Nodes" ReturnType="Collection(OSMModel.Node)">
+          <FunctionImport Name="GetClosestNode" EntitySet="Nodes" ReturnType="Collection(Model.Node)">
             <Parameter Name="lat" Mode="In" Type="Double" />
             <Parameter Name="lon" Mode="In" Type="Double" />
           </FunctionImport>
-          <FunctionImport Name="GetClosestWay" EntitySet="Ways" ReturnType="Collection(OSMModel.Way)">
+          <FunctionImport Name="GetClosestWay" EntitySet="Ways" ReturnType="Collection(Model.Way)">
             <Parameter Name="lat" Mode="In" Type="Double" />
             <Parameter Name="lon" Mode="In" Type="Double" />
           </FunctionImport>
-          <FunctionImport Name="GetClosestWayNode" EntitySet="Nodes" ReturnType="Collection(OSMModel.Node)">
+          <FunctionImport Name="GetClosestWayNode" EntitySet="Nodes" ReturnType="Collection(Model.Node)">
             <Parameter Name="lat" Mode="In" Type="Double" />
             <Parameter Name="lon" Mode="In" Type="Double" />
             <Parameter Name="idWay" Mode="In" Type="Int64" />
@@ -104,7 +103,7 @@
           <Property Name="OrderId" Type="Int16" Nullable="false" />
           <Property Name="Lat" Type="Double" Nullable="false" />
           <Property Name="Lon" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Way" Relationship="OSMModel.fk_WayNode" FromRole="Node" ToRole="Way" />
+          <NavigationProperty Name="Way" Relationship="Model.fk_WayNode" FromRole="Node" ToRole="Way" />
         </EntityType>
         <EntityType Name="Way">
           <Key>
@@ -116,13 +115,13 @@
           <Property Name="Name" Type="String" MaxLength="80" Unicode="true" FixedLength="false" />
           <Property Name="Country" Type="String" MaxLength="2" Unicode="true" FixedLength="true" />
           <Property Name="OneWay" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Nodes" Relationship="OSMModel.fk_WayNode" FromRole="Way" ToRole="Node" />
+          <NavigationProperty Name="Nodes" Relationship="Model.fk_WayNode" FromRole="Way" ToRole="Node" />
         </EntityType>
         <Association Name="fk_WayNode">
-          <End Role="Way" Type="OSMModel.Way" Multiplicity="1">
+          <End Role="Way" Type="Model.Way" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Node" Type="OSMModel.Node" Multiplicity="*" />
+          <End Role="Node" Type="Model.Node" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Way">
               <PropertyRef Name="Id" />
@@ -138,14 +137,14 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="OSMEntities">
-          <EntitySetMapping Name="Nodes"><EntityTypeMapping TypeName="OSMModel.Node"><MappingFragment StoreEntitySet="Node">
+          <EntitySetMapping Name="Nodes"><EntityTypeMapping TypeName="Model.Node"><MappingFragment StoreEntitySet="Node">
             <ScalarProperty Name="Id" ColumnName="id" />
             <ScalarProperty Name="WayId" ColumnName="wayId" />
             <ScalarProperty Name="OrderId" ColumnName="orderId" />
             <ScalarProperty Name="Lat" ColumnName="lat" />
             <ScalarProperty Name="Lon" ColumnName="lon" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Ways"><EntityTypeMapping TypeName="OSMModel.Way"><MappingFragment StoreEntitySet="Way">
+          <EntitySetMapping Name="Ways"><EntityTypeMapping TypeName="Model.Way"><MappingFragment StoreEntitySet="Way">
             <ScalarProperty Name="Id" ColumnName="id" />
             <ScalarProperty Name="Type" ColumnName="type" />
             <ScalarProperty Name="Ref" ColumnName="ref" />
@@ -178,9 +177,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Model">
-        <EntityTypeShape EntityType="OSMModel.Node" Width="1.5" PointX="3" PointY="1" Height="2.1725878906250005" IsExpanded="true" />
-        <EntityTypeShape EntityType="OSMModel.Way" Width="1.5" PointX="0.75" PointY="1" Height="2.3648893229166656" IsExpanded="true" />
-        <AssociationConnector Association="OSMModel.fk_WayNode" ManuallyRouted="false">
+        <EntityTypeShape EntityType="Model.Node" Width="1.5" PointX="3" PointY="1" Height="2.1725878906250005" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Way" Width="1.5" PointX="0.75" PointY="1" Height="2.3648893229166674" IsExpanded="true" />
+        <AssociationConnector Association="Model.fk_WayNode" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="2.0862939453125002" />
           <ConnectorPoint PointX="3" PointY="2.0862939453125002" />
         </AssociationConnector>

@@ -10,17 +10,17 @@ The latest version includes all the source files of this project, and the latest
 
 ##Documentation
 
-The documentation of this project is available on the ([wiki](https://github.com/diogofdsilva/MS-OSM-Querys/wiki)).
+The documentation for this project is available on the [wiki](https://github.com/diogofdsilva/MS-OSM-Querys/wiki).
 
 ##Installation
 
 You must have the following requisites:
 
-* Microsoft SQL Server Database that supports Spatial querys (after SQL Server 2008 R2);
+* Microsoft SQL Server Database that supports Spatial querys (since SQL Server 2008 R2);
 * Download OSM file containing the extract of the map ([link](http://download.geofabrik.de/osm/)).
 
 The full installation procedures are in the following ([link](https://github.com/diogofdsilva/MS-OSM-Querys/wiki/Installation)).
 
 ##Licensing
 
-This project is under ([GNU Lesser General Public License](http://www.gnu.org/licenses/lgpl.html)).
+This project is under [GNU Lesser General Public License](http://www.gnu.org/licenses/lgpl.html).

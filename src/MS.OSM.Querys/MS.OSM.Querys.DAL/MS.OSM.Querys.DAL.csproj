@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="EF\DataMappers\EFNodesDataMapper.cs" />
     <Compile Include="EF\DataMappers\EFWaysDataMapper.cs" />
-    <Compile Include="EF\Model\Model1.Designer.cs">
+    <Compile Include="EF\Model\Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
@@ -59,12 +59,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="EF\Model\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\MS.OSM.Querys\MS.OSM.Querys.csproj">
       <Project>{FC262993-D8C5-4D54-BD8B-6E690DEF1AC6}</Project>
       <Name>MS.OSM.Querys</Name>
@@ -73,6 +67,10 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="App.Config" />
+    <EntityDeploy Include="EF\Model\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
