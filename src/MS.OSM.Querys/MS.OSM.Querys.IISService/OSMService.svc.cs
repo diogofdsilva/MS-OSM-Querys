@@ -13,6 +13,7 @@ using MS.OSM.Querys.DTO;
 namespace MS.OSM.Querys.IISService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
+    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.Single, IncludeExceptionDetailInFaults = true)]
     public class OSMService : IOSMService
     {
         private int _ticketNumber;
@@ -38,6 +39,7 @@ namespace MS.OSM.Querys.IISService
             get { return _connectionStrings; }
         }
 
+        
         public Way GetWay(long id)
         {
             using (OSMDataAccessLayer data = new OSMDataAccessLayer(GetNextConnection()))

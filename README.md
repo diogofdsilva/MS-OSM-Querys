@@ -2,11 +2,11 @@
 
 ##What is it?
 
-The *MS OSM Querys* is a project that tries to fill a gap in the Open Street Maps community. With this project, you will be able to have geocoding and reverse geocoding functionalities using Microsoft technologies like Microsft SQL Server databases and Windows Communcation Foundation.
+The *MS OSM Querys* is a project that tries to fill a gap in the Open Street Maps community. With this project, you will be able to have geocoding and reverse geocoding functionalities using Microsoft technologies like Microsoft SQL Server databases and Windows Communication Foundation.
 
 ##The Latest Version
 
-The latest version includes all the source files of this project, and the latest builds of the executable projects.
+The latest version includes all the source files of this project (folder src/), and the latest builds of the executable projects (folder bin/). Finnaly, the latest version includes the SQL Scripts to build the relational model in a database.
 
 ##Documentation
 

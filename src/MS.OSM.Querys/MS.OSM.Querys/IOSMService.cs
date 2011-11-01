@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 using MS.OSM.Querys.DTO;
 
@@ -8,6 +9,7 @@ namespace MS.OSM.Querys
     public interface IOSMService
     {
         [OperationContract]
+        [FaultContract(typeof(Exception))]
         Way GetWay(long id);
 
         [OperationContract]

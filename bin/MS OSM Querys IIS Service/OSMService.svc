@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="MS.OSM.Querys.IISService.OSMService" CodeBehind="OSMService.svc.cs" %>
