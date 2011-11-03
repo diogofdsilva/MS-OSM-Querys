@@ -19,7 +19,7 @@ You must have the following requisites:
 * Microsoft SQL Server Database that supports Spatial querys (since SQL Server 2008 R2);
 * Download OSM file containing the extract of the map ([link](http://download.geofabrik.de/osm/)).
 
-The full installation procedures are in the following ([link](https://github.com/diogofdsilva/MS-OSM-Querys/wiki/Installation)).
+The full installation procedures are in the following ([link](https://github.com/diogofdsilva/MS-OSM-Querys/wiki/%5BEng%5D-Installation)).
 
 ##Licensing
 
